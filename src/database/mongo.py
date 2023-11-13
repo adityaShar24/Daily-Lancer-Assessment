@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from .models.user_model import user_schema
+from utils.constants import CONNECTED_TO_MONGODB , CONNECTION_FAILED
 
 CONNECTION_STRING  = 'mongodb+srv://aditya:aditya2004@cluster0.lgjqzvz.mongodb.net/?retryWrites=true&w=majority'
 
@@ -16,6 +17,6 @@ else:
     
 try:
     client.server_info()
-    print("Connected to MongoDB")
+    print(CONNECTED_TO_MONGODB)
 except Exception as e:
-    print("Could not connect to MongoDB" , e)
+    print(CONNECTION_FAILED , e)
