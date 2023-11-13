@@ -1,9 +1,14 @@
 from flask import Flask
 from flask_jwt_extended import JWTManager
 from routes.user_router import auth_bp
-
+from middlewares.user_middleware import register_user_middleware , login_user_middlware
 
 app = Flask(__name__)
+
+JWTManager(app)
+
+app.before_request(register_user_middleware)
+app.before_request(login_user_middlware)
 
 app.register_blueprint(auth_bp)
 
