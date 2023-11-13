@@ -1,6 +1,6 @@
 from flask import request , json , make_response
 from database.repositories.user_repository import User_Repository
-from utils.constants import HTTP_201_CREATED , HTTP_400_BAD_REQUEST , USER_REGISTERED_MESSAGE , INVALID_PASSWORD_MESSAGE , USER_LOGGEDIN_MESSAGE
+from utils.constants import HTTP_201_CREATED , HTTP_400_BAD_REQUEST , USER_REGISTERED_MESSAGE , INVALID_PASSWORD_MESSAGE , USER_LOGGEDIN_MESSAGE , ALL_USERS
 from flask_jwt_extended import create_access_token
 import bson.json_util as json_util
 import datetime
@@ -31,3 +31,11 @@ def login():
     acess_token = create_access_token(identity=username , fresh=datetime.timedelta(hours=6))
     
     return make_response({"message": USER_LOGGEDIN_MESSAGE.format(username = username) , "access_token":acess_token} , HTTP_201_CREATED)
+
+def get_all_users():
+    users = User_Repository().find_many()
+    list_all_users =  list(users)
+    
+    json_version = json_util.dumps(list_all_users)
+    
+    return make_response({"message": ALL_USERS, "users":json_version} , HTTP_201_CREATED)

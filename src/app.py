@@ -1,12 +1,15 @@
 from flask import Flask
 from flask_jwt_extended import JWTManager
-from routes.user_router import auth_bp
+from routes.user_router import auth_bp , cache
 from middlewares.user_middleware import register_user_middleware , login_user_middleware
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "my_secret_key"
 
 JWTManager(app)
+
+cache.init_app(app)
 
 
 app.before_request(register_user_middleware)
