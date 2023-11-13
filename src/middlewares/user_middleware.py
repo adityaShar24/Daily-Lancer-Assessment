@@ -5,10 +5,10 @@ from utils.constants import  HTTP_400_BAD_REQUEST , USERNAME_REQUIRED_MESSAGE , 
 def register_user_middleware():
     if request.endpoint == REGISTER_USER_ENDPOINT:
         body = json.loads(request.data)
+        print(request.endpoint)
         
-        username = body['username']
-        password = body['password']
-        
+        username = body('username')  
+        password = body('password')        
         if not username:
             return make_response({"message": USERNAME_REQUIRED_MESSAGE} , HTTP_400_BAD_REQUEST)
         
@@ -22,7 +22,7 @@ def register_user_middleware():
             return make_response({"message": USERNAME_ALREADY_EXISTS_MESSAGE } , HTTP_400_BAD_REQUEST)
 
 
-def login_user_middlware():
+def login_user_middleware():
     if request.endpoint == LOGIN_USER_ENDPOINT:
         body = json.loads(request.data)
         

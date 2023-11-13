@@ -15,7 +15,7 @@ def register():
     
     json_version = json_util.dumps(saved_user)
     
-    return make_response({'message': USER_REGISTERED_MESSAGE.format(username), 'user': json_version} , HTTP_201_CREATED)
+    return make_response({'message': USER_REGISTERED_MESSAGE.format(username = username), 'user': json_version} , HTTP_201_CREATED)
 
 def login():
     body = json.loads(request.data)
@@ -30,4 +30,4 @@ def login():
     
     acess_token = create_access_token(identity=username , fresh=datetime.timedelta(hours=6))
     
-    return make_response({"message": USER_LOGGEDIN_MESSAGE.format(username) , "access_token":acess_token} , HTTP_201_CREATED)
+    return make_response({"message": USER_LOGGEDIN_MESSAGE.format(username = username) , "access_token":acess_token} , HTTP_201_CREATED)
