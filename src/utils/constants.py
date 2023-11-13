@@ -11,6 +11,8 @@ INVALID_PASSWORD_MESSAGE = "Invalid password, please provide correct password"
 USERNAME_REQUIRED_MESSAGE = "username is required"
 PASSWORD_REQUIRED_MESSAGE = "password is required"
 USERNAME_ALREADY_EXISTS_MESSAGE = "username already exists, please try another username"
+USER_DOES_NOT_EXIST_MESSAGE = "user does not exist, please register first"
 
 REGISTER_USER_ENDPOINT = 'auth_bp.register_user_wrapper'
 LOGIN_USER_ENDPOINT = 'auth_bp.login_user_wrapper'
+
