@@ -16,8 +16,8 @@ def register_user_wrapper():
 def login_user_wrapper():
     return login()
 
-@auth_bp.get('/auth/get')
-@jwt_required
+@auth_bp.get('/auth/get-all-users')
+@jwt_required()
 @cache.cached(timeout=60)
 def get_all_users_wrapper():
     return get_all_users()
