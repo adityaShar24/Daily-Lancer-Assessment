@@ -1,5 +1,6 @@
 from pymongo import MongoClient
-from .models.user_model import user_schema
+from .models.user_model import user_schema 
+from .models.job_model import job_schema
 from utils.constants import CONNECTED_TO_MONGODB , CONNECTION_FAILED
 
 CONNECTION_STRING  = 'mongodb+srv://aditya:aditya2004@cluster0.lgjqzvz.mongodb.net/'
@@ -18,9 +19,10 @@ def create_collection(database , collection_name , schema):
 
 try:
     mongo_client = MongoClient(CONNECTION_STRING, serverSelectionTimeoutMS=5000)
-    mongo_client.server_info()  # Check if the server is reachable
+    mongo_client.server_info() 
     print(CONNECTED_TO_MONGODB)
     users_collection = create_collection(database , 'users' , user_schema)
+    jobs_collection = create_collection(database , 'Jobs' , job_schema)
 
 except Exception as e:
     print(CONNECTION_FAILED , e)
