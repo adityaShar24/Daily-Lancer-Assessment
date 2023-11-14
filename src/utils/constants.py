@@ -23,3 +23,5 @@ SKILLS_REQUIRED_MESSAGE = "skills is required"
 SALARY_REQUIRED_MESSAGE = "salary is required"
 POSTED_BY_REQUIRED_MESSAGE = "posted_by is required"
 
+JOB_CREATED_MESSAGE = 'Job created successfully'
+
