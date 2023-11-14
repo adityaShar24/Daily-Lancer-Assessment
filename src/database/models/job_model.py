@@ -1,6 +1,6 @@
 job_schema = {
     "bsonType": "object",
-    "required": ["title" , "description" , "skills" , "posted_by"],
+    "required": ["title" , "description" , "skills" , "posted_by" , "salary"],
     "properties": {
         "title": {
             "bsonType": "string",

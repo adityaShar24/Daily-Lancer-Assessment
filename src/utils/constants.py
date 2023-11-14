@@ -17,3 +17,9 @@ USER_DOES_NOT_EXIST_MESSAGE = "user does not exist, please register first"
 REGISTER_USER_ENDPOINT = 'auth_bp.register_user_wrapper'
 LOGIN_USER_ENDPOINT = 'auth_bp.login_user_wrapper'
 
+TITLE_REQUIRED_MESSAGE = "title is required"
+DESCRIPTION_REQUIRED_MESSAGE = "description is required"
+SKILLS_REQUIRED_MESSAGE = "skills is required"
+SALARY_REQUIRED_MESSAGE = "salary is required"
+POSTED_BY_REQUIRED_MESSAGE = "posted_by is required"
+
