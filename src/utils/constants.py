@@ -24,4 +24,5 @@ SALARY_REQUIRED_MESSAGE = "salary is required"
 POSTED_BY_REQUIRED_MESSAGE = "posted_by is required"
 
 JOB_CREATED_MESSAGE = 'Job created successfully'
+CREATE_JOB_ENDPOINT = 'jobs_bp.create_job_wrapper'
 
