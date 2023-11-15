@@ -10,3 +10,6 @@ def create_job_wrapper():
 @jobs_bp.post('/jobs/apply')
 def apply_job_wrapper():
     return apply()
+
+# /jobs/list_by_job - job_id
+# /jobs/mine - user_id

@@ -33,3 +33,4 @@ CONTACT_NO_REQUIRED_MESSAGE = "contact_no is required"
 EMAIL_REQUIRED_MESSAGE = "email is required"
 COVER_LETTER_REQUIRED_MESSAGE = "cover_letter is required"
 APPLIED_SUCCESSFULLY_MESSAGE = "Applied successfully"
+APPLY_JOB_ENDPOINT = 'jobs_bp.apply_job_wrapper'
