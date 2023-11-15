@@ -10,8 +10,9 @@ def register():
     
     username = body['username']    
     password = body['password']
+    email = body['email']
     
-    saved_user = User_Repository().create({ "username":username , "password":password })
+    saved_user = User_Repository().create({ "username":username , "password":password , "email":email })
     
     json_version = json_util.dumps(saved_user)
     

@@ -1,6 +1,6 @@
 from flask import json , request , make_response
 from database.repositories.user_repository import User_Repository
-from utils.constants import  HTTP_400_BAD_REQUEST , USERNAME_REQUIRED_MESSAGE , PASSWORD_REQUIRED_MESSAGE , USERNAME_ALREADY_EXISTS_MESSAGE , REGISTER_USER_ENDPOINT , LOGIN_USER_ENDPOINT , USER_DOES_NOT_EXIST_MESSAGE
+from utils.constants import  HTTP_400_BAD_REQUEST , USERNAME_REQUIRED_MESSAGE , PASSWORD_REQUIRED_MESSAGE , USERNAME_ALREADY_EXISTS_MESSAGE , REGISTER_USER_ENDPOINT , LOGIN_USER_ENDPOINT , USER_DOES_NOT_EXIST_MESSAGE , EMAIL_REQUIRED_MESSAGE
 
 def register_user_middleware():
     if request.endpoint == REGISTER_USER_ENDPOINT:
@@ -8,13 +8,17 @@ def register_user_middleware():
         print(request.endpoint)
         
         username = body('username')  
-        password = body('password')        
+        password = body('password')   
+        email = body('email')
+        
         if not username:
             return make_response({"message": USERNAME_REQUIRED_MESSAGE} , HTTP_400_BAD_REQUEST)
         
         if not password:
             return make_response({"message": PASSWORD_REQUIRED_MESSAGE} , HTTP_400_BAD_REQUEST)
         
+        if not email:
+            return make_response({"message": EMAIL_REQUIRED_MESSAGE} , HTTP_400_BAD_REQUEST)
         
         existing_user = User_Repository().find_one({"username": username})
         
@@ -28,6 +32,7 @@ def login_user_middleware():
         
         username = body['username']
         password = body['password']
+        
         
         if not username:
             return make_response({"message": USERNAME_REQUIRED_MESSAGE} , HTTP_400_BAD_REQUEST)

@@ -1,6 +1,6 @@
 job_schema = {
     "bsonType": "object",
-    "required": ["title" , "description" , "skills" , "posted_by" , "salary"],
+    "required": ["title" , "description" , "company_name" , "skills" , "posted_by" , "salary"],
     "properties": {
         "title": {
             "bsonType": "string",
@@ -22,8 +22,12 @@ job_schema = {
             "description": "must be an integer and is required"
         },
         "posted_by": {
+            "bsonType": "objectId",
+            "description": "must be an ObjectId and is required"
+        },
+        "company_name": {
             "bsonType": "string",
-            "description": "must be a string and is required"
-        }
+            "description": "must be a string"
+        },    
     }
 }

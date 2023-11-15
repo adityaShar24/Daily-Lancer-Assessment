@@ -1,6 +1,6 @@
 user_schema = {
     'bsonType': 'object',
-    'required': ['username' , 'password'],
+    'required': ['username' , 'password' , "email"],
     'properties': {
         'username': {
             'bsonType': 'string',
@@ -8,6 +8,10 @@ user_schema = {
         },
         'password': {
             'bsonType': 'string',
+            'description': 'must be a string and is required'
+        },
+        "email": {
+            "bsonType": "string",
             'description': 'must be a string and is required'
         }
     }

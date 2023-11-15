@@ -13,6 +13,7 @@ USERNAME_REQUIRED_MESSAGE = "username is required"
 PASSWORD_REQUIRED_MESSAGE = "password is required"
 USERNAME_ALREADY_EXISTS_MESSAGE = "username already exists, please try another username"
 USER_DOES_NOT_EXIST_MESSAGE = "user does not exist, please register first"
+APPLICANT_ID_REQUIRED_MESSAGE = "applicant_id is required"
 
 REGISTER_USER_ENDPOINT = 'auth_bp.register_user_wrapper'
 LOGIN_USER_ENDPOINT = 'auth_bp.login_user_wrapper'
@@ -22,6 +23,7 @@ DESCRIPTION_REQUIRED_MESSAGE = "description is required"
 SKILLS_REQUIRED_MESSAGE = "skills is required"
 SALARY_REQUIRED_MESSAGE = "salary is required"
 POSTED_BY_REQUIRED_MESSAGE = "posted_by is required"
+COMPANY_NAME_REQUIRED_MESSAGE = "company name is required"
 
 JOB_CREATED_MESSAGE = 'Job created successfully'
 CREATE_JOB_ENDPOINT = 'jobs_bp.create_job_wrapper'
