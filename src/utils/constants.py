@@ -25,4 +25,8 @@ POSTED_BY_REQUIRED_MESSAGE = "posted_by is required"
 
 JOB_CREATED_MESSAGE = 'Job created successfully'
 CREATE_JOB_ENDPOINT = 'jobs_bp.create_job_wrapper'
-
+JOB_ID_REQUIRED_MESSAGE = "job_id is required"
+RESUME_REQUIRED_MESSAGE = "resume is required"
+CONTACT_NO_REQUIRED_MESSAGE = "contact_no is required"
+EMAIL_REQUIRED_MESSAGE = "email is required"
+COVER_LETTER_REQUIRED_MESSAGE = "cover_letter is required"
