@@ -6,7 +6,7 @@ import bson.json_util as json_util
 from bson.objectid import ObjectId
 
 
-def create_job():
+def create():
     body = json.loads(request.data)
     title = body['title']
     description = body['description']
