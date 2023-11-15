@@ -1,6 +1,7 @@
 from flask import json , request , make_response
 from database.repositories.jobs_repository import Jobs_Repository
-from utils.constants import  HTTP_201_CREATED , JOB_CREATED_MESSAGE
+from database.repositories.job_application_repository import Jobs_Application_Repository
+from utils.constants import  HTTP_201_CREATED , JOB_CREATED_MESSAGE , APPLIED_SUCCESSFULLY_MESSAGE
 import bson.json_util as json_util
 from bson.objectid import ObjectId
 
@@ -13,8 +14,21 @@ def create_job():
     salary = body['salary']
     posted_by = body['posted_by']
     
-    saved_job = Jobs_Repository().create({"title":title , "description":description , "skills":skills , "salary":salary , "posted_by": ObjectId(posted_by) })
+    job = Jobs_Repository().create({"title":title , "description":description , "skills":skills , "salary":salary , "posted_by": ObjectId(posted_by) })
     
-    json_version = json_util.dumps(saved_job)
+    json_version = json_util.dumps(job)
     
     return make_response({'message': JOB_CREATED_MESSAGE , 'job': json_version} , HTTP_201_CREATED)
+
+def apply():
+    body = json.loads(request.data)
+    job_id = body['job_id']
+    applicant_id = body['applicant_id']
+    resume = body['resume']
+    cover_letter = body['cover_letter']
+    
+    applicantion = Jobs_Application_Repository().create({"job_id":job_id , "applicant":applicant_id , "resume":resume , "cover_letter":cover_letter })
+    
+    json_version = json_util.dumps(applicantion)
+    
+    return make_response({'message': APPLIED_SUCCESSFULLY_MESSAGE  , "application_id": json_version } , HTTP_201_CREATED)
