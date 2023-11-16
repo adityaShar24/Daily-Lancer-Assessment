@@ -9,11 +9,21 @@
 
 ## Features 🚀
 ### User Registration and Authentication 🔐
-- Users can register and log in securely using JWT authentication.
+- Secure user registration and login functionality using JWT (JSON Web Tokens). The authentication service validates user credentials and generates a JWT for authenticated users. This token is used to authenticate subsequent requests from the client.
+
+## 👥 User Listing
+
+Employers can view a list of all registered users.
+
+---
 
 ### Job Posting/Applying 📝
 - Users (employers) can post job opportunities with details such as title, description, skills, salary, and company name.
 - Job seekers can apply for available job positions by submitting their resumes and cover letters.
+
+## 📄 Job Application Listing
+
+Employers can retrieve and view applications for a specific job.
 
 ## Prerequisites 🛠️
 ### Getting Started
@@ -44,6 +54,14 @@ To run the Job Application System Flask Application, execute the following comma
 ```bash
 python app.py
 ```
+
+## 📁 Project Structure
+
+- **controllers**: Contains modules handling business logic and interfacing with the database.
+- **database**: Includes database connection configurations and models.
+- **middlewares**: Houses middleware functions for request processing before reaching the route handlers.
+- **routes**: Defines the API endpoints using Flask Blueprints.
+- **utils**: Holds utility functions and constants.
 
 #### 🚀 Happy coding! 🌟
 
