@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask_jwt_extended import jwt_required
-from controllers.job_controller import create , apply , list_by_job_apllications
+from controllers.job_controller import create , apply , list_by_job_applications
 
 jobs_bp = Blueprint('jobs_bp', __name__)
 
@@ -16,7 +16,7 @@ def apply_job_wrapper():
 
 @jobs_bp.get('/jobs/applications/job/<int:job_id>')
 @jwt_required()
-def list_by_job_apllications_wrapper(job_id):
-    return list_by_job_apllications(job_id)
+def list_by_job_applications_wrapper(job_id):
+    return list_by_job_applications(job_id)
 
 
