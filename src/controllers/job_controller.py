@@ -33,3 +33,11 @@ def apply():
     json_version = json_util.dumps(applicantion)
     
     return make_response({'message': APPLIED_SUCCESSFULLY_MESSAGE  , "application_id": json_version } , HTTP_201_CREATED)
+
+
+def list_by_job_apllications():
+    job_id = request.args.get('job_id')
+    applications = Jobs_Application_Repository().find_many({"job_id":ObjectId(job_id)})
+    json_version = json_util.dumps(applications)
+    return make_response({'applications': json_version} , HTTP_201_CREATED)
+    
