@@ -1,12 +1,12 @@
 from flask import json , request , make_response
 from database.repositories.jobs_repository import Jobs_Repository
 from database.repositories.job_application_repository import Jobs_Application_Repository
-from utils.constants import  HTTP_201_CREATED , JOB_CREATED_MESSAGE , APPLIED_SUCCESSFULLY_MESSAGE , ALL_JOBS
+from utils.constants import  HTTP_201_CREATED , JOB_CREATED_MESSAGE , APPLIED_SUCCESSFULLY_MESSAGE , ALL_JOBS , APPLICATIONS_FOR_JOB
 import bson.json_util as json_util
 from bson.objectid import ObjectId
 
 
-def create():
+def create_job():
     body = json.loads(request.data)
     title = body['title']
     description = body['description']
@@ -21,7 +21,7 @@ def create():
     
     return make_response({'message': JOB_CREATED_MESSAGE , 'job': json_version} , HTTP_201_CREATED)
 
-def apply():
+def apply_for_job():
     body = json.loads(request.data)
     job_id = body['job_id']
     applicant_id = body['applicant_id']
@@ -50,5 +50,5 @@ def list_by_job_applications():
     applications = Jobs_Application_Repository().find_many({"job_id":ObjectId(job_id)})
     
     json_version = json_util.dumps(applications)
-    return make_response({'applications': json_version} , HTTP_201_CREATED)
     
+    return make_response({'message': APPLICATIONS_FOR_JOB.format(job_id = job_id), 'applications': json_version}, HTTP_201_CREATED)    

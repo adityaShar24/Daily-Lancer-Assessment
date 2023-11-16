@@ -35,3 +35,4 @@ COVER_LETTER_REQUIRED_MESSAGE = "cover_letter is required"
 APPLIED_SUCCESSFULLY_MESSAGE = "Applied successfully"
 APPLY_JOB_ENDPOINT = 'jobs_bp.apply_job_wrapper'
 ALL_JOBS = "All jobs"
+APPLICATIONS_FOR_JOB = 'Applications for job {job_id}'
