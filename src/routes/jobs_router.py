@@ -22,10 +22,10 @@ def get_all_jobs_wrapper():
     return get_all_jobs()
 
 
-@jobs_bp.get('/jobs/applications/job/<int:job_id>')
+@jobs_bp.get('/jobs/applications/job')
 @jwt_required()
 @cache.cached(timeout=60)
-def list_by_job_applications_wrapper(job_id):
-    return list_by_job_applications(job_id)
+def list_by_job_applications_wrapper():
+    return list_by_job_applications()
 
 

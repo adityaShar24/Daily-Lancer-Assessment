@@ -29,9 +29,9 @@ def login():
     if password != user['password']:
         return make_response({"message": INVALID_PASSWORD_MESSAGE} , HTTP_400_BAD_REQUEST)
     
-    acess_token = create_access_token(identity=username , fresh=datetime.timedelta(hours=6))
+    access_token = create_access_token(identity=username , fresh=datetime.timedelta(hours=6))
     
-    return make_response({"message": USER_LOGGEDIN_MESSAGE.format(username = username) , "access_token":acess_token} , HTTP_201_CREATED)
+    return make_response({"message": USER_LOGGEDIN_MESSAGE.format(username = username) , "access_token":access_token} , HTTP_201_CREATED)
 
 def get_all_users():
     users = User_Repository().find_many()

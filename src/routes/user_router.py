@@ -22,7 +22,7 @@ def login_user_wrapper():
 def get_all_users_wrapper():
     return get_all_users()
 
-@auth_bp.get('/auth/list-applications-by-user/<int:user_id>')
+@auth_bp.get('/auth/application/user')
 @jwt_required()
 @cache.cached(timeout=60)
 def list_applications_by_user_wrapper(user_id):
