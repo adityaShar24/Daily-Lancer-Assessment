@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_jwt_extended import jwt_required
 from flask_caching import Cache
-from controllers.user_controller import register , login , get_all_users
+from controllers.user_controller import register , login , get_all_users , list_applications_by_user
 
 auth_bp = Blueprint('auth_bp' , __name__)
 
@@ -22,3 +22,8 @@ def login_user_wrapper():
 def get_all_users_wrapper():
     return get_all_users()
 
+@auth_bp.get('/auth/list-applications-by-user/<int:user_id>')
+@jwt_required()
+@cache.cached(timeout=60)
+def list_applications_by_user_wrapper(user_id):
+    return list_applications_by_user(user_id)
