@@ -17,6 +17,7 @@ def apply_job_wrapper():
 
 @jobs_bp.get('/jobs/get-all-jobs')
 @jwt_required()
+@cache.cached(timeout=60)
 def get_all_jobs_wrapper():
     return get_all_jobs()
 
