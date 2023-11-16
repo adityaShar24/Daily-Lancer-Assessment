@@ -40,3 +40,12 @@ def get_all_users():
     json_version = json_util.dumps(list_all_users)
     
     return make_response({"message": ALL_USERS, "users":json_version} , HTTP_201_CREATED)
+
+
+def list_applications_by_user():
+    user_id = request.args.get('user_id')
+    
+    applications = User_Repository().list_applications_by_user(user_id)
+    
+    json_version = json_util.dumps(applications)
+    return make_response({'applications': json_version} , HTTP_201_CREATED)
